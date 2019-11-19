@@ -86,12 +86,12 @@ bool CheckRows(char board[ROWS][COLUMNS], char piece) {
   int counter;
   for (int i = 0; i < ROWS; i++) {
     for(int j = 0; j < COLUMNS; j++){
+      if (counter == 4) {
+        return true;
+      }
       if(board[i][j] == piece){
         counter++;
-        if (counter == 4) {
-          return true;
         }
-      }
       else {
         counter = 0;
       }
@@ -104,12 +104,12 @@ bool CheckColumns(char board[ROWS][COLUMNS], char piece){
   int counter;
   for (int col = 0; col < COLUMNS; col++) {
     for(int row = 0; row < ROWS; row++) {
-      if(board[row][col] == piece) {
-        counter++;
-        if (counter == 4) {
-          return true;
-        }
+      if (counter == 4) {
+        return true;
       }
+      if(board[col][row] == piece){
+        counter++;
+        }
       else {
         counter = 0;
       }
