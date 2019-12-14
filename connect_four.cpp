@@ -54,7 +54,7 @@ void SetPlayerMove(char board[ROWS][COLUMNS]) {
   int column;
   cout << "Choose a column for X: ";
   cin >> column;
-  if(column > 7 && column < 0) {
+  if(column > 7 || column < 0) {
     SetPlayerMove(board);
   }
   int row = ROWS - 1;
@@ -85,11 +85,11 @@ void SetComputerMove(char board[ROWS][COLUMNS]){
 bool CheckRows(char board[ROWS][COLUMNS], char piece) {
   int counter;
   for (int i = 0; i < ROWS; i++) {
-    for(int j = 0; j < COLUMNS; j++){
+    for(int j = 0; j < COLUMNS; j++) {
       if (counter == 4) {
         return true;
       }
-      if(board[i][j] == piece){
+      if(board[i][j] == piece) {
         counter++;
         }
       else {
@@ -100,14 +100,14 @@ bool CheckRows(char board[ROWS][COLUMNS], char piece) {
   return false;
 }
 
-bool CheckColumns(char board[ROWS][COLUMNS], char piece){
+bool CheckColumns(char board[ROWS][COLUMNS], char piece) {
   int counter;
   for (int col = 0; col < COLUMNS; col++) {
     for(int row = 0; row < ROWS; row++) {
       if (counter == 4) {
         return true;
       }
-      if(board[col][row] == piece){
+      if(board[col][row] == piece) {
         counter++;
         }
       else {
@@ -119,7 +119,6 @@ bool CheckColumns(char board[ROWS][COLUMNS], char piece){
 }
 
 bool CheckDiagonals(char board[ROWS][COLUMNS], char piece) {
-
   for (int row = 0; row < 3; row++) {
     for(int col = 0; col < 4; col++) {
       if(board[row][col] == piece && board[row+1][col+1] == piece &&  board[row+2][col+2] == piece && board[row+3][col+3] == piece) {
